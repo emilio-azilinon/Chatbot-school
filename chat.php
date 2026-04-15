@@ -178,19 +178,49 @@ function generateResponse($intentions, $originalText) {
     
     // Si pas de question filière mais filière spécifique mentionnée
     elseif (isset($intentions['filiere_informatique'])) {
-        $responses[] = '💻 Informatique : génie logiciel, réseaux, systèmes. Licence ou Master ?';
+        // Si utilisateur choisit licence ou master après une question filière
+        if (preg_match('/(licence|master|bac)/i', $originalText)) {
+            $niveau = preg_match('/master/i', $originalText) ? 'Master' : 'Licence';
+            $responses[] = "✅ Parfait ! Informatique en $niveau 🎓\n📝 Inscription en ligne\n💰 Frais : +229 XXXX XXXX\n📞 Tél : +229 XXXX XXXX";
+        } else {
+            $responses[] = '💻 Informatique : génie logiciel, réseaux, systèmes. Licence ou Master ?';
+        }
     }
     elseif (isset($intentions['filiere_gestion'])) {
-        $responses[] = '📊 Gestion : comptabilité, marketing, management. Licence ou Master ?';
+        // Si utilisateur choisit licence ou master après une question filière
+        if (preg_match('/(licence|master|bac)/i', $originalText)) {
+            $niveau = preg_match('/master/i', $originalText) ? 'Master' : 'Licence';
+            $responses[] = "✅ Parfait ! Gestion en $niveau 🎓\n📝 Inscription en ligne\n💰 Frais : +229 XXXX XXXX\n📞 Tél : +229 XXXX XXXX";
+        } else {
+            $responses[] = '📊 Gestion : comptabilité, marketing, management. Licence ou Master ?';
+        }
     }
     elseif (isset($intentions['filiere_droit'])) {
-        $responses[] = '⚖️ Droit : droit civil, pénal, commercial. Licence ou Master ?';
+        // Si utilisateur choisit licence ou master après une question filière
+        if (preg_match('/(licence|master|bac)/i', $originalText)) {
+            $niveau = preg_match('/master/i', $originalText) ? 'Master' : 'Licence';
+            $responses[] = "✅ Parfait ! Droit en $niveau 🎓\n📝 Inscription en ligne\n💰 Frais : +229 XXXX XXXX\n📞 Tél : +229 XXXX XXXX";
+        } else {
+            $responses[] = '⚖️ Droit : droit civil, pénal, commercial. Licence ou Master ?';
+        }
     }
     elseif (isset($intentions['filiere_sciences'])) {
-        $responses[] = '🔬 Sciences : biologie, chimie, physique. Licence ou Master ?';
+        // Si utilisateur choisit licence ou master après une question filière
+        if (preg_match('/(licence|master|bac)/i', $originalText)) {
+            $niveau = preg_match('/master/i', $originalText) ? 'Master' : 'Licence';
+            $responses[] = "✅ Parfait ! Sciences en $niveau 🎓\n📝 Inscription en ligne\n💰 Frais : +229 XXXX XXXX\n📞 Tél : +229 XXXX XXXX";
+        } else {
+            $responses[] = '🔬 Sciences : biologie, chimie, physique. Licence ou Master ?';
+        }
     }
     elseif (isset($intentions['filiere_communication'])) {
-        $responses[] = '📢 Communication : journalisme, marketing, publicité. Licence ou Master ?';
+        // Si utilisateur choisit licence ou master après une question filière
+        if (preg_match('/(licence|master|bac)/i', $originalText)) {
+            $niveau = preg_match('/master/i', $originalText) ? 'Master' : 'Licence';
+            $responses[] = "✅ Parfait ! Communication en $niveau 🎓\n📝 Inscription en ligne\n💰 Frais : +229 XXXX XXXX\n📞 Tél : +229 XXXX XXXX";
+        } else {
+            $responses[] = '📢 Communication : journalisme, marketing, publicité. Licence ou Master ?';
+        }
     }
     
     // Questions sur l'inscription (priorité haute - condition spéciale)
